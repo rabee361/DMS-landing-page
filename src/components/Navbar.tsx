@@ -140,7 +140,7 @@ function Navbar() {
 
             {/* Logo (always visible, right-aligned) */}
             <div className="flex-shrink-0 hover:scale-105 transition-all duration-300 order-last">
-              <span className="text-2xl font-bold text-blue-600">مشبك</span>
+              <span className="text-2xl font-bold text-blue-900">مشبك</span>
             </div>
 
           </div>
