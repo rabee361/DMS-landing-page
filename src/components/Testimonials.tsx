@@ -1,24 +1,27 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import { useTranslation } from 'react-i18next'
 
 function Testimonials() {
+    const { t } = useTranslation()
+    
     const testimonials = [
         {
             id: 1,
-            name: "سعد سراج",
-            text: "شعرت وكأن لدي مستشار رقمياً يساعدني في التخطيط لمشروعي",
+            name: t('testimonials.testimonial1.name'),
+            text: t('testimonials.testimonial1.text'),
             image: "https://randomuser.me/api/portraits/men/32.jpg"
         },
         {
             id: 2,
-            name: "أحمد العبدالله",
-            text: "قدموا لي خدمات استثنائية ساعدتني على تطوير أعمالي بشكل كبير",
+            name: t('testimonials.testimonial2.name'),
+            text: t('testimonials.testimonial2.text'),
             image: "https://randomuser.me/api/portraits/men/41.jpg"
         },
         {   
             id: 3,
-            name: "نورة الخالدي",
-            text: "تجربة رائعة من البداية للنهاية، فريق عمل محترف ومتعاون",
+            name: t('testimonials.testimonial3.name'),
+            text: t('testimonials.testimonial3.text'),
             image: "https://randomuser.me/api/portraits/women/33.jpg"
         }
     ]
@@ -52,7 +55,7 @@ function Testimonials() {
     return (
         <div className="bg-white py-16">
             <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-                <h2 className="text-5xl font-bold text-center mb-16 text-blue-800">آراء العملاء</h2>
+                <h2 className="text-5xl font-bold text-center mb-16 text-blue-800">{t('testimonials.title')}</h2>
                 
                 <div className="relative w-full overflow-hidden" style={{ height: "400px" }}>
                     <AnimatePresence mode="wait">

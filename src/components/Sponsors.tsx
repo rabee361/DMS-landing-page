@@ -1,10 +1,13 @@
+import { useTranslation } from 'react-i18next'
 
 function Sponsors() {
+  const { t } = useTranslation()
+  
   return (
     <div className="py-16 bg-white" id="sponsors">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-5xl font-bold text-blue-900 mb-2">شركاء النجاح</h2>
+          <h2 className="text-5xl font-bold text-blue-900 mb-2">{t('sponsors.title')}</h2>
         </div>
         
         <div className="bg-gray-50 rounded-lg py-12 px-6 shadow-inner">
@@ -50,7 +53,7 @@ function Sponsors() {
         
         <div className="text-center mt-10">
           <a href="#" className="inline-block text-blue-600 hover:text-blue-800 font-medium text-lg">
-            انضم إلى شركائنا!
+            {t('sponsors.joinUs')}
           </a>
         </div>
 

@@ -3,11 +3,13 @@ import { motion, AnimatePresence, useInView } from 'framer-motion'
 import img1 from '../assets/images/img1.jpg'
 import img2 from '../assets/images/img2.avif'
 import img3 from '../assets/images/img3.webp'
+import { useTranslation } from 'react-i18next'
 
 function Services() {
   const [selectedId, setSelectedId] = useState<number | null>(null)
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, amount: 0.2 })
+  const { t } = useTranslation()
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -72,20 +74,20 @@ function Services() {
   const services = [
     {
       id: 1,
-      title: 'دليل المشاريع من مرحلة الفكرة للتأسيس',
-      description: 'نقدم دليلاً شاملاً لمساعدتك في تحويل أفكارك إلى مشاريع ناجحة بداية من مرحلة الفكرة وحتى التأسيس',
+      title: t('services.service1.title'),
+      description: t('services.service1.description'),
       image: img1
     },
     {
       id: 2,
-      title: 'بناء وتأسيس المشاريع: دليل شامل للنجاح والاستدامة',
-      description: 'نساعدك في بناء مشروعك بطريقة احترافية مع ضمان استدامة النجاح على المدى الطويل',
+      title: t('services.service2.title'),
+      description: t('services.service2.description'),
       image: img2
     },
     {
       id: 3,
-      title: 'كيفية إنشاء التفكير',
-      description: 'نعلمك كيفية تطوير مهارات التفكير الإبداعي والاستراتيجي لنجاح مشروعك',
+      title: t('services.service3.title'),
+      description: t('services.service3.description'),
       image: img3
     }
   ]
@@ -98,9 +100,9 @@ function Services() {
     <div className="py-16 bg-white" ref={ref}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col items-center text-center mb-12">
-          <h2 className="text-5xl font-bold text-blue-900 mb-4">الخدمات</h2>
+          <h2 className="text-5xl font-bold text-blue-900 mb-4">{t('services.title')}</h2>
           <div className="flex justify-center w-full">
-            <a href="#" className="text-blue-600 hover:text-blue-800 font-medium text-lg">عرض الكل</a>
+            <a href="#" className="text-blue-600 hover:text-blue-800 font-medium text-lg">{t('services.viewAll')}</a>
           </div>
         </div>
 
@@ -138,7 +140,7 @@ function Services() {
                   className="px-2 py-2 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 flex justify-center items-center transition duration-300"
                   onClick={(e) => e.stopPropagation()}
                 >
-                   طلب الخدمة
+                  {t('services.requestService')}
                 </motion.a>
               </motion.div>
             </motion.div>
@@ -170,7 +172,7 @@ function Services() {
                   {selectedId && (
                     <div className="bg-white rounded-lg shadow-2xl overflow-hidden mx-4 my-8 flex flex-col md:flex-row-reverse">
                       <div className="relative w-full md:w-2/5">
-                        <div className="h-48 md:h-full relative">
+                        <div className="h-28 md:h-full relative">
                           <img 
                             src={findService(selectedId)?.image} 
                             alt={findService(selectedId)?.title} 
@@ -197,17 +199,17 @@ function Services() {
                           </p>
                           <div>
                             <p className="text-gray-700 mb-2 md:mb-4 text-xs md:text-sm">
-                              هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى، حيث يمكنك أن تولد مثل هذا النص أو العديد من النصوص الأخرى إضافة إلى زيادة عدد الحروف التى يولدها التطبيق.
+                              {t('services.modal.description1')}
                             </p>
                             <p className="text-gray-700 mb-3 md:mb-6 text-xs md:text-sm">
-                              إذا كنت تحتاج إلى عدد أكبر من الفقرات يتيح لك مولد النص العربى زيادة عدد الفقرات كما تريد، النص لن يبدو مقسما ولا يحوي أخطاء لغوية.
+                              {t('services.modal.description2')}
                             </p>
                           </div>
                         </div>
                         <button
                           className="mt-2 md:mt-4 px-4 md:px-6 py-2 bg-blue-600 text-white font-medium rounded-lg flex justify-center items-center hover:bg-blue-700 transition duration-300 text-sm md:text-base"
                         >
-                          طلب الخدمة
+                          {t('services.requestService')}
                         </button>
                       </div>
                     </div>

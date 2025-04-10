@@ -1,0 +1,13 @@
+{
+    "navbar": {
+      "home": "الرئيسية",
+      "about": "عننا",
+      "contact": "تواصل",
+      "services": "خدماتنا",
+      "testimonials": "آراء العملاء",
+      "sponsors": "الشركاء",
+      "login": "تسجيل الدخول",
+      "register": "إنشاء حساب",
+      "logo": "مشبك"
+    }
+}

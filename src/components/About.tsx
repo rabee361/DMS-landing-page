@@ -2,10 +2,12 @@ import img1 from "../assets/images/img1.jpg"
 import { motion } from "framer-motion"
 import { useInView } from "framer-motion"
 import { useRef } from "react"
+import { useTranslation } from "react-i18next"
 
 function About() {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, amount: 0.3 })
+  const { t } = useTranslation()
   
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -87,20 +89,20 @@ function About() {
               className="text-4xl font-bold text-blue-900 mb-6"
               variants={textVariants}
             >
-              نحن هنا لنساعدك في تطبيق فكرتك!
+              {t('about.title')}
             </motion.h2>
             <div className="space-y-4 text-gray-600">
               <motion.p 
                 className="text-lg"
                 variants={textVariants}
               >
-                نحن نقدم مجموعة من الخدمات لمساعدة الشركات الصغيرة على النمو والنجاح. يتكون فريقنا من محترفين ذوي خبرة مكرسين لمساعدة عملائنا على تحقيق أهدافهم.
+                {t('about.description1')}
               </motion.p>
               <motion.p 
                 className="text-lg"
                 variants={textVariants}
               >
-                نحن نقدم للعملاء مجموعة متنوعة من الخدمات، بما في ذلك:
+                {t('about.description2')}
               </motion.p>
               <motion.ul 
                 className="space-y-2 mr-6"
@@ -110,7 +112,7 @@ function About() {
                   className="flex items-center justify-end gap-2"
                   variants={listItemVariants}
                 >
-                  <span>نماذج العمل المتخصصة</span>
+                  <span>{t('about.service1')}</span>
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-blue-600" viewBox="0 0 20 20" fill="currentColor">
                     <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                   </svg>
@@ -119,7 +121,7 @@ function About() {
                   className="flex items-center justify-end gap-2"
                   variants={listItemVariants}
                 >
-                  <span>دراسات الجدوى الاقتصادية</span>
+                  <span>{t('about.service2')}</span>
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-blue-600" viewBox="0 0 20 20" fill="currentColor">
                     <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                   </svg>
@@ -128,7 +130,7 @@ function About() {
                   className="flex items-center justify-end gap-2"
                   variants={listItemVariants}
                 >
-                  <span>الخطط التسويقية المتكاملة</span>
+                  <span>{t('about.service3')}</span>
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-blue-600" viewBox="0 0 20 20" fill="currentColor">
                     <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                   </svg>

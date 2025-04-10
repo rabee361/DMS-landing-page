@@ -1,7 +1,10 @@
 import Navbar from './Navbar'
 import { TypeAnimation } from 'react-type-animation'
+import { useTranslation } from 'react-i18next'
 
 function Hero() {
+  const { t, i18n } = useTranslation()
+  
   return (
     <div className="relative min-h-screen flex flex-col mt-9">
       <Navbar />
@@ -16,8 +19,9 @@ function Hero() {
             >
               <div className="leading-tight pb-8">
                 <TypeAnimation
+                  key={i18n.language}
                   sequence={[
-                    'دراسات تساعدك تبدأ\nبسرعة وسهولة',
+                    t('hero.title'),
                   ]}
                   speed={20} // Slow typing speed (characters per second)
                   style={{ whiteSpace: 'pre-line', display: 'inline-block' }}

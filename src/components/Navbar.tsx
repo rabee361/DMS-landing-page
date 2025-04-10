@@ -1,9 +1,14 @@
 import { useEffect, useState } from 'react'
+import {useTranslation} from "react-i18next";
+import LanguageToggle from './LanguageToggle';
 
 function Navbar() {
+
   const [isScrolled, setIsScrolled] = useState(false)
   const [activeSection, setActiveSection] = useState('home')
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+
+  const { t } = useTranslation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -98,49 +103,54 @@ function Navbar() {
             {/* Navigation Links (visible on larger screens) */}
             <div className="hidden lg:block">
               <div className="text-nowrap flex items-center space-x-4 mr-2">
-                <a href="#" className="text-gray-700 hover:bg-blue-200 hover:scale-105 transition-all duration-300 px-3 py-2 rounded-md text-sm font-medium">تسجيل الدخول</a>
-                <a href="#" className="text-white bg-blue-600 hover:scale-105 transition-all duration-300 px-3 py-2 rounded-md text-sm font-medium">إنشاء حساب</a>
+                <a href="#" className="text-gray-700 border-2 border-blue-200 hover:bg-blue-200 hover:scale-105 transition-all duration-300 px-3 py-2 rounded-md text-sm font-medium">
+                  {t("login")}
+                </a>
+                <a href="#" className="text-white bg-blue-600 hover:scale-105 transition-all duration-300 px-3 py-2 rounded-md text-sm font-medium">
+                  {t("register")}
+                </a>
                 <a 
                   href="#" 
                   onClick={(e) => { e.preventDefault(); scrollToSection('home'); }}
                   className={`${activeSection === 'home' ? 'text-blue-600' : 'text-gray-700'} hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-all duration-300`}
                 >
-                  الصفحة الرئيسية
+                  {t("home")}
                 </a>
                 <a 
                   href="#" 
                   onClick={(e) => { e.preventDefault(); scrollToSection('services'); }}
                   className={`${activeSection === 'services' ? 'text-blue-600' : 'text-gray-700'} hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-all duration-300`}
                 >
-                  خدماتنا
+                  {t("services")}
                 </a>
                 <a 
                   href="#" 
                   onClick={(e) => { e.preventDefault(); scrollToSection('about'); }}
                   className={`${activeSection === 'about' ? 'text-blue-600' : 'text-gray-700'} hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-all duration-300`}
                 >
-                  من نحن
+                  {t("about")}
                 </a>
                 <a 
                   href="#" 
                   onClick={(e) => { e.preventDefault(); scrollToSection('testimonials'); }}
                   className={`${activeSection === 'testimonials' ? 'text-blue-600' : 'text-gray-700'} hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-all duration-300`}
                 >
-                  آراء العملاء
+                  {t("testimonials")}
                 </a>
                 <a 
                   href="#" 
                   onClick={(e) => { e.preventDefault(); scrollToSection('sponsors'); }}
                   className={`${activeSection === 'sponsors' ? 'text-blue-600' : 'text-gray-700'} hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-all duration-300`}
                 >
-                  الشركاء
+                  {t("sponsors")}
                 </a>
+                <LanguageToggle />
               </div>
             </div>
 
             {/* Logo (always visible, right-aligned) */}
             <div className="flex-shrink-0 hover:scale-105 transition-all duration-300 order-last">
-              <span className="text-2xl font-bold text-blue-900">مشبك</span>
+              <span className="text-2xl font-bold text-blue-900">{t("logo")}</span>
             </div>
 
           </div>
@@ -160,39 +170,43 @@ function Navbar() {
               onClick={(e) => { e.preventDefault(); scrollToSection('home'); }}
               className={`${activeSection === 'home' ? 'bg-blue-100 text-blue-600' : 'text-gray-700'} block px-3 py-2 rounded-md text-base font-medium text-right`}
             >
-              الصفحة الرئيسية
+              {t("home")}
             </a>
             <a 
               href="#" 
               onClick={(e) => { e.preventDefault(); scrollToSection('services'); }}
               className={`${activeSection === 'services' ? 'bg-blue-100 text-blue-600' : 'text-gray-700'} block px-3 py-2 rounded-md text-base font-medium text-right`}
             >
-              خدماتنا
+              {t("services")}
             </a>
             <a 
               href="#" 
               onClick={(e) => { e.preventDefault(); scrollToSection('about'); }}
               className={`${activeSection === 'about' ? 'bg-blue-100 text-blue-600' : 'text-gray-700'} block px-3 py-2 rounded-md text-base font-medium text-right`}
             >
-              من نحن
+              {t("about")}
             </a>
             <a 
               href="#" 
               onClick={(e) => { e.preventDefault(); scrollToSection('testimonials'); }}
               className={`${activeSection === 'testimonials' ? 'bg-blue-100 text-blue-600' : 'text-gray-700'} block px-3 py-2 rounded-md text-base font-medium text-right`}
             >
-              آراء العملاء
+              {t("testimonials")}
             </a>
             <a 
               href="#" 
               onClick={(e) => { e.preventDefault(); scrollToSection('sponsors'); }}
               className={`${activeSection === 'sponsors' ? 'bg-blue-100 text-blue-600' : 'text-gray-700'} block px-3 py-2 rounded-md text-base font-medium text-right`}
             >
-              الشركاء
+              {t("sponsors")}
             </a>
             <div className="flex flex-col space-y-2 pt-2">
-              <a href="#" className="text-gray-700 hover:bg-blue-100 px-3 py-2 rounded-md text-base font-medium text-right">تسجيل الدخول</a>
-              <a href="#" className="text-white bg-blue-600 px-3 py-2 rounded-md text-base font-medium text-center">إنشاء حساب</a>
+              <a href="#" className="text-gray-700 hover:bg-blue-100 px-3 py-2 rounded-md text-base font-medium text-right">
+                {t("login")}
+              </a>
+              <a href="#" className="text-white bg-blue-600 px-3 py-2 rounded-md text-base font-medium text-center">
+                {t("register")}
+              </a>
             </div>
           </div>
         </div>

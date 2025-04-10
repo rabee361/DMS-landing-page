@@ -5,6 +5,7 @@ import Testimonials from './components/Testimonials'
 import Sponsors from './components/Sponsors'
 import Footer from './components/Footer'
 import About from './components/About'
+import '../i18n';
 
 function App() {
   return (
